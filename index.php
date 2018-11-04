@@ -11,7 +11,7 @@
 	<?php 
 		if (isset($_GET['message'])) {    
 		   echo '<div style="width: 67%; padding: 20px;  margin: auto; margin-top: 10%; margin-bottom: 1%; text-align: center;" class="alert alert-danger" role="alert">
-				  Please input text or corpus
+				  Please input text or corpus!!!
 				</div>';
 		}
 	?>
