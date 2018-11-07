@@ -24,7 +24,7 @@ $maks = $maks_array ['id_term'];
 		 $hasil_array = $hasil->fetch_assoc();
 		 $hasil = $hasil_array ['term'];	
 		 $awal = microtime(true);
-		 $katadasar = hapusakhiran(hapusawalan2(hapusawalan1(hapuspp(hapuspartikel($hasil)))));
+		 $katadasar = talakamus($hasil);
 		 $sql = "INSERT INTO hasil_stemming (id_term_fk,	id_algoritma_fk,hasil_stemming,time,status) VALUES ('$kata', '1' , '$katadasar' , '0', 'stemming berhasil') ";
 		 if(mysqli_query($konek, $sql)){
 			echo "Records added successfully. <br>";

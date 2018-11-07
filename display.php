@@ -95,7 +95,7 @@
 							$token1 = 	0;
 							arsort($stopword);
 							foreach($stopword as $a => $a_value){   
-								$stem= hapusakhiran(hapusawalan2(hapusawalan1(hapuspp(hapuspartikel($a)))));
+								$stem= talakamus($a);
 							    if(!empty($a)){
 							    	$token1 = ($token1+1);
 								}	
@@ -107,7 +107,7 @@
 
 				<table width="900px">
 					<tr>
-						<td ALIGN="center"><button id="btn_token" name ="btn-token" type="button" class="btn btn-success" onclick="tokenFunction()"">TOKEN</button></td>
+						<td ALIGN="center"><button id="btn_token" name ="btn-token" type="button" class="btn btn-success" onclick="tokenFunction()">TOKEN</button></td>
 				        <td ALIGN="center"><button id="btn_stopword" name ="btn-stopword" type="button" class="btn btn-primary" onclick="stopwordFunction()">STOPWORD</button></td>
 				        <td ALIGN="center"><button id="btn-stemming" name ="btn-stemming" type="button" class="btn btn-info" onclick="stemmingFunction()">STEMMING</button></td>
 				    </tr>
@@ -163,7 +163,7 @@
 							<?php 
 							arsort($stopword);
 							foreach($stopword as $z => $z_value) {
-								$stem= hapusakhiran(hapusawalan2(hapusawalan1(hapuspp(hapuspartikel($z)))));   
+								$stem= talakamus($z);   
 								if(!empty($z)){
 									echo "<tr>";
 									echo "<td>".$stem."</td>";

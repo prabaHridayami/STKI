@@ -109,4 +109,65 @@ function hapusakhiran($kata){
 
 	return $kata;
 }
+
+function tokenisasi1($input){
+	//fungsi ini untuk menghilangkan tanda baca pada kalimat, dan memisahkan kata kata
+	$input = preg_replace( "/(,|\"|\.|\?|:|!|;|-| - )/", " ", $input ); // menghilangkan tanda baca
+	$input = preg_replace( "/\n/", " ", $input ); // menghilangkan enter
+	$input = preg_replace( "/\s\s+/", " ", $input ); // menghilangkan spasi
+	$input = explode(" ",$input);
+
+	return $input;
+}
+
+function katadasar(){
+	$katadasar = file_get_contents('katadasar.txt');
+	$katadasar = tokenisasi1($katadasar);
+	return $katadasar;
+}
+
+function talakamus($kata){
+	if(carikatadasar($kata)!=1){
+		$kata = hapuspartikel($kata);
+	}
+	if(carikatadasar($kata)!=1){
+		$kata = hapuspp($kata);
+	}
+
+	$kata1 = $kata;
+
+	if(carikatadasar($kata)!=1){
+		$kata = hapusawalan1($kata);
+	}
+
+	if($kata1==$kata){
+		if(carikatadasar($kata)!=1){
+			$kata = hapusawalan2($kata);
+		}
+		if(carikatadasar($kata)!=1){
+			$kata = hapusakhiran($kata);
+		}
+	} else {
+		$kata2 = $kata;
+		if(carikatadasar($kata)!=1){
+			$kata = hapusakhiran($kata);
+		}
+		if(carikatadasar($kata)!=1){
+			if($kata2 = $kata){
+				$kata = hapusawalan2($kata);
+			}
+		}
+	}
+	return $kata;			
+}
+
+function carikatadasar($kata){
+	$katadasar = katadasar();
+	if(in_array($kata, $katadasar)){
+		$hasil = 1;
+	} else {
+		$hasil = 0;
+	}
+	return $hasil; //memberikan jawaban kata ada di database atau tidak
+}
 ?>
