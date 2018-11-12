@@ -253,14 +253,14 @@
 		$arr_indexbobot []= $indexbobot;
 		$arr_bobot [] = $bobot;
 	}
-	// echo json_encode($arr_indexbobot);
-	// echo json_encode($arr_bobot);
-	$arr_combobot = array_combine($arr_indexbobot,$arr_bobot);
-	echo json_encode($arr_combobot);
+	echo "<br>".json_encode($arr_indexbobot);
+	echo "<br>".json_encode($arr_bobot);
+	$arr_combobot = array_merge($arr_indexbobot, $arr_bobot);
+	// echo json_encode($arr_combobot);
 	$countarrbot = count($arr_combobot);
 
 	$splitparagraf1 = splitparagraf($kata1);
-	echo json_encode($arr_combobot);
+	echo "<br>".json_encode($arr_combobot);
 			
 ?>
 	
@@ -325,7 +325,9 @@
 								}	
 									
 							}
-						echo $token1?> </p>
+						echo $token1?> 
+						</p>
+					
 					</div>
 				</div>
 				<div class="form-group row">
