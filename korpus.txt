@@ -1,6 +1,8 @@
 <DOC>
 <DOCNO>dokumen01</DOCNO>
-<TITLE> Catatan dokumen ke 1 </TITLE>
+<TITLE> 
+Catatan dokumen ke 1 
+</TITLE>
 <AUTHOR> No Name </AUTHOR>
 <DATE> Juli 2009 </DATE>
 <TEXT>

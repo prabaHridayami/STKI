@@ -19471,6 +19471,7 @@ pembayan
 pemendak
 pemeo
 pemidang
+pemilu
 pempek
 pemudi
 pemuras
@@ -20421,6 +20422,7 @@ polong
 polonium
 polonter
 polos
+polri
 polusi
 polutan
 polutif
