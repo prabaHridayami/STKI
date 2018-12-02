@@ -18,12 +18,6 @@
 		<div class="container" style="padding-top: 20px" >
 			<form id="form" method="post" action="display.php" style="width: 80%; height: 700%; padding: 20px;  margin-left: auto; margin-right: auto; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 10px;">
 				<h1 style="margin-bottom: 30px">STKI Peringkasan</h1>
-				<!-- <div class="form-group row"> 
-					<label for="inputEmail3" class="col-sm-4 col-form-label">   Input Judul</label>
-					<div  class="col-sm-8">
-						<input id="input1" name="judul" type="string" class="form-control" id="inputEmail3" >
-					</div>
-				</div> -->
 				<div class="form-group row"> 
 					<label for="inputEmail3" class="col-sm-4 col-form-label"><input type="radio" name="first" value="text" id="disable" checked>    Input Text</label>
 					<div  class="col-sm-8">
