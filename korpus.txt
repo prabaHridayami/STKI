@@ -1,11 +1,2 @@
-<DOC>
-<DOCNO>dokumen01</DOCNO>
-<TITLE> 
-Catatan dokumen ke 1 
-</TITLE>
-<AUTHOR> No Name </AUTHOR>
-<DATE> Juli 2009 </DATE>
-<TEXT>
-Tokenisasi dan Segmentasi teks Tokenisasi adalah tahap pemrosesan di mana teks input dibagi menjadi unit-unit kecil yang disebut token, yang dapat berupa suatu kata, suatu angka, atau suatu tanda baca. Segmentasi adalah proses tokenisasi sederhana.
-</TEXT>
-</DOC>
+Pernah merasakan momen kamu mengenal temanmu dengan sangat dekat. Saking dekatnya sampai kamu tahu perasaannya. Kamu gak ingin selalu melindungi dan menjaganya. Meski begitu, kamu gak pernah berpikir untuk merengkuh atau berhasrat padanya. Itu adalah cinta yang murni spiritual atau disebut dengan cinta platonik.
+Cinta gak sekadar tentang hubungan lawan jenis, namun juga termasuk cinta antara anak dan orangtua, kakak dan adik, dan sesama saudara. Dalam hubungan cinta tersebut, adakalanya seseorang membutuhkan sentuhan, seperti berjabat tangan dan pelukan hangat. Sementara, saat kamu mengalami cinta platonik, dengan keberadaanmu saja sudah cukup.
