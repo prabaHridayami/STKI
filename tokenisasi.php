@@ -91,7 +91,8 @@ function splitkalimat2($kata){
 
 function splitparagraf($kata){
 	$trim_token 	= trim($kata);
-	$kata_token   	= explode("\r\n", $trim_token);
+	$kata_token   	= preg_split("/\s\n/", $trim_token, -1, PREG_SPLIT_NO_EMPTY);
+	// $kata_token   	= explode("\r\n", $trim_token);
 	$data_token   	= $kata_token;
 
 	return $data_token;

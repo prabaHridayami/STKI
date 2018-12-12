@@ -405,15 +405,9 @@
 <body style="background-image: url(bg.jpg); background-size: 100%">
 	<div class="content">
 		<div class="container">
-			<form id="form" method="post" action="" style="width: 80%; height: 700%; padding: 20px;  margin: auto; margin-top: 10%; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 5px;">
+			<form id="form" method="post" action="" style="width: 80%; height: 700%; padding: 20px;  margin: auto; margin-top: 5%; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 5px;">
+				<a href="http://localhost/STKI/index.php"><img src="home.png"  /></a>
 				<h1 style="margin-bottom: 30px">STKI Peringkasan</h1>
-				<!-- <div class="form-group row">
-					<label for="inputEmail3" class="col-sm-4 col-form-label">Judul</label>
-					<div class="col-sm-8">
-						<p Align="Justify">: 
-					
-					</div>
-				</div> -->
 				<div class="form-group row">
 					<label for="inputEmail3" class="col-sm-4 col-form-label">Text Awal</label>
 					<div class="col-sm-8">
@@ -450,7 +444,9 @@
 						</p>
 					
 					</div>
-				</div>
+				</div>	
+			</form>
+			<form action="" style="width: 80%; height: 700%; padding: 20px;  margin: auto; margin-top: 3%; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 5px;">
 				<div class="form-group row">
 					<label for="inputEmail3" class="col-sm-4 col-form-label">Ringkasan1</label>
 					<div class="col-sm-8">
@@ -482,6 +478,31 @@
 						</p>
 					</div>
 				</div>
+				<table class="table">
+					<?php 
+						
+						for($hitparagraf = 0; $hitparagraf<$countparagraf; $hitparagraf++){
+							echo "<tr>";
+							echo "<th width='50px' style='text-align:center'> Index <th>";
+							echo "<th width='800px' style='text-align:center'> Kalimat pada Paragraf ". ($hitparagraf+1)."<th>";
+							echo "<th width='200px' style='text-align:center'> Bobot </th>";
+							echo "</tr>";
+							$splitkalimat1 = splitkalimat1($splitparagraf1[$hitparagraf]);
+							$dokumencount1 = count(kalimat($splitkalimat1));
+
+							for ($doc=0;$doc<$dokumencount1;$doc++){
+							echo "<tr>";
+							echo "<td style='text-align:center'>".($doc+1)."<td>";
+							echo "<td>".$splitkalimat1[$doc]."<td>";
+							echo "<td style='text-align:center'>".$summary_proc[$hitparagraf][$doc]."<td>";
+							echo "</tr>";
+
+							}							
+						}
+					?>
+				</table>		
+			</form>
+			<form action="" style="width: 80%; height: 700%; padding: 20px;  margin: auto; margin-top: 3%; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 5px;">
 				<div class="form-group row">
 					<label for="inputEmail3" class="col-sm-4 col-form-label">Ringkasan2</label>
 					<div class="col-sm-8">
@@ -531,63 +552,31 @@
 						</p>
 					</div>
 				</div>
+				<table class="table">
+					<?php 
+						echo "<tr>";
+						echo "<th width='50px' style='text-align:center'> Index <th>";
+						echo "<th width='800px' style='text-align:center'> Kalimat <th>";
+						echo "<th width='200px' style='text-align:center'> Bobot </th>";
+						echo "</tr>";
 
-				<div class="col-sm-12" >
-					<table class="table">
-						<?php 
-							
-							for($hitparagraf = 0; $hitparagraf<$countparagraf; $hitparagraf++){
+						$sql2 = "SELECT `dokumen`.`id_dokumen` as `id_dokumen`, `dokumen`.`dokumen` as `dokumen`, `dokbot`.`bobot` as `bobot` FROM `dokbot` INNER JOIN `dokumen` USING (`id_dokumen`) ORDER BY `dokbot`.`bobot` DESC";
+						$result = konek()->query($sql2);
+						if ($result->num_rows > 0) {
+							// output data of each row
+							while($row = $result->fetch_assoc()) {
 								echo "<tr>";
-								echo "<th width='50px' style='text-align:center'> Index <th>";
-								echo "<th width='800px' style='text-align:center'> Kalimat pada Paragraf ". ($hitparagraf+1)."<th>";
-								echo "<th width='200px' style='text-align:center'> Bobot </th>";
+								echo "<td style='text-align:center'>".$row['id_dokumen']."<td>";
+								echo "<td>".$row['dokumen']."<td>";
+								echo "<td style='text-align:center'>".$row['bobot']."<td>";
 								echo "</tr>";
-								$splitkalimat1 = splitkalimat1($splitparagraf1[$hitparagraf]);
-								$dokumencount1 = count(kalimat($splitkalimat1));
-
-								for ($doc=0;$doc<$dokumencount1;$doc++){
-								echo "<tr>";
-								echo "<td style='text-align:center'>".($doc+1)."<td>";
-								echo "<td>".$splitkalimat1[$doc]."<td>";
-								echo "<td style='text-align:center'>".$summary_proc[$hitparagraf][$doc]."<td>";
-								echo "</tr>";
-	
-								}							
 							}
-						?>
-					</table>
-						
-				</div>
-
-
-
-				<div class="col-sm-12" >
-					<table class="table">
-						<?php 
-							echo "<tr>";
-							echo "<th width='50px' style='text-align:center'> Index <th>";
-							echo "<th width='800px' style='text-align:center'> Kalimat <th>";
-							echo "<th width='200px' style='text-align:center'> Bobot </th>";
-							echo "</tr>";
-
-							$sql2 = "SELECT `dokumen`.`id_dokumen` as `id_dokumen`, `dokumen`.`dokumen` as `dokumen`, `dokbot`.`bobot` as `bobot` FROM `dokbot` INNER JOIN `dokumen` USING (`id_dokumen`) ORDER BY `dokbot`.`bobot` DESC";
-							$result = konek()->query($sql2);
-							if ($result->num_rows > 0) {
-								// output data of each row
-								while($row = $result->fetch_assoc()) {
-									echo "<tr>";
-									echo "<td style='text-align:center'>".$row['id_dokumen']."<td>";
-									echo "<td>".$row['dokumen']."<td>";
-									echo "<td style='text-align:center'>".$row['bobot']."<td>";
-									echo "</tr>";
-								}
-							}
-						
-						?>
-					</table>
-						
-				</div>
-
+						}
+					
+					?>
+				</table>
+			</form>
+			<form action="" style="width: 80%; height: 700%; padding: 20px;  margin: auto; margin-top: 3%; border: 1px solid #DDD; box-shadow: 10px 10px 10px #DDD; background-color: white; border-radius: 5px;">
 				<table width="900px">
 					<tr>
 						<td ALIGN="center"><button id="btn_token" name ="btn-token" type="button" class="btn btn-success" onclick="tokenFunction()">TOKEN</button></td>
@@ -658,7 +647,7 @@
 							?>
 						</table>
 					</div>
-				</div>	
+				</div>		
 			</form>
 		</div>
 	</div>			
